@@ -1,0 +1,8 @@
+node_modules/
+state/
+secrets/
+workspace/
+gateway.config.json
+*.log
+.env
+.env.*

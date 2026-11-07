@@ -1,0 +1,86 @@
+{
+  "stateDir": "state",
+  "panel": { "enabled": true, "bind": "127.0.0.1", "port": 18790 },
+  "publish": {
+    "enabled": false,
+    "binds": ["127.0.0.1"],
+    "port": 18792,
+    "baseUrl": "http://127.0.0.1:18792",
+    "title": "agentgate",
+    "roots": { "notes": "workspace/assistant/output" },
+    "publicDirs": ["public"],
+    "linkOnlyDirs": []
+  },
+  "profiles": {
+    "echo": {
+      "backend": "echo",
+      "workspace": "workspace/echo"
+    },
+    "assistant": {
+      "backend": "claude",
+      "workspace": "workspace/assistant",
+      "permissionMode": "bypassPermissions",
+      "persona": "You are a helpful personal assistant reached through a chat app. The chat shows plain text only: answer conclusion first, keep it short, avoid Markdown tables. For long reports, write a Markdown file under output/ and reply with a short summary."
+    },
+    "codex": {
+      "backend": "codex",
+      "workspace": "workspace/assistant",
+      "persona": "You are a coding assistant reached through a chat app. Reply in short plain text.",
+      "turnTimeoutMinutes": 30
+    },
+    "public": {
+      "backend": "claude",
+      "workspace": "workspace/public",
+      "isolated": true,
+      "tools": ["WebSearch", "WebFetch"],
+      "maxTurns": 12,
+      "systemPrompt": "You are a friendly general-purpose assistant in a public chat bot. Reply in plain text, concisely. You can search and read public web pages."
+    }
+  },
+  "bots": {
+    "local": {
+      "channel": "local",
+      "profiles": ["echo", "assistant", "codex"],
+      "defaultProfile": "echo",
+      "local": {
+        "stdin": true,
+        "http": { "enabled": true, "bind": "127.0.0.1", "port": 18800, "timeoutSeconds": 600 }
+      }
+    },
+    "wechat": {
+      "enabled": false,
+      "channel": "weixin",
+      "profiles": ["assistant", "codex"],
+      "defaultProfile": "assistant",
+      "weixin": { "tokenFile": "secrets/weixin.json" }
+    },
+    "qq": {
+      "enabled": false,
+      "channel": "qqbot",
+      "profiles": ["assistant", "codex"],
+      "defaultProfile": "assistant",
+      "qqbot": { "credentialsFile": "secrets/qqbot.json" }
+    },
+    "qq-public": {
+      "enabled": false,
+      "channel": "qqbot",
+      "profiles": ["public"],
+      "defaultProfile": "public",
+      "session": { "idleResetMinutes": 120 },
+      "qqbot": { "credentialsFile": "secrets/qqbot-public.json", "public": true }
+    },
+    "tv": {
+      "enabled": false,
+      "channel": "tv",
+      "profiles": ["assistant"],
+      "defaultProfile": "assistant",
+      "tv": {
+        "bind": "0.0.0.0",
+        "port": 18796,
+        "tokenFile": "secrets/tv.json",
+        "asrUrl": "http://127.0.0.1:18797/inference",
+        "chatId": "tv"
+      }
+    }
+  }
+}

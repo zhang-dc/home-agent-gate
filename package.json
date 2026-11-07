@@ -1,0 +1,45 @@
+{
+  "name": "agentgate",
+  "version": "0.1.0",
+  "description": "IM <-> AI agent gateway: message/access layer in-house, reasoning delegated to agent harnesses (Claude Agent SDK / Codex CLI)",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "author": "zhang-dc",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhang-dc/agentgate.git"
+  },
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "dev": "tsx watch src/index.ts",
+    "login:weixin": "tsx src/cli/login-weixin.ts",
+    "smoke": "tsx scripts/smoke-backend.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@10.16.0",
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "^0.3.235",
+    "@hono/node-server": "^2.1.1",
+    "@tencent-connect/qqbot-nodejs": "1.0.4",
+    "hono": "^4.13.3",
+    "marked": "^18.0.11",
+    "qrcode-terminal": "0.12.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "tsx": "^4.22.4",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}
