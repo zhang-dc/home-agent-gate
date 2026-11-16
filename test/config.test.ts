@@ -44,7 +44,7 @@ describe("config validation", () => {
   });
 
   it("resolves relative paths against the base dir and applies defaults", () => {
-    const base = path.resolve("/srv/agentgate");
+    const base = path.resolve("/srv/home-agent-gate");
     const cfg = parseConfig(
       { profiles, bots: { me: { channel: "local", profiles: ["full"], defaultProfile: "full" } } },
       base,

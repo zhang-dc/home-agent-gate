@@ -53,7 +53,7 @@ export class ClaudeBackend implements ReasoningBackend {
       stderr: (data) => this.log.debug(`stderr: ${data.trimEnd()}`),
       env: {
         ...process.env,
-        CLAUDE_AGENT_SDK_CLIENT_APP: "agentgate/0.1.0",
+        CLAUDE_AGENT_SDK_CLIENT_APP: "home-agent-gate/0.1.0",
         // Everyone on a public bot shares one cwd: auto-memory would carry user A's chat into user B's.
         ...(this.cfg.isolated ? { CLAUDE_CODE_DISABLE_AUTO_MEMORY: "1" } : {}),
       },

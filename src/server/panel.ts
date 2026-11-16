@@ -116,7 +116,7 @@ const PAGE = `<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>agentgate</title>
+<title>Home Agent Gate</title>
 <style>
   :root { --bg:#101418; --card:#1a2027; --line:#2a333d; --fg:#dbe4ec; --dim:#7f8ea0; --accent:#4fb6ff; --ok:#4ade80; --warn:#fbbf24; --err:#f87171; }
   * { box-sizing:border-box; }
@@ -140,7 +140,7 @@ const PAGE = `<!doctype html>
 </style>
 </head>
 <body>
-<h1>agentgate <small id="uptime"></small></h1>
+<h1>Home Agent Gate <small id="uptime"></small></h1>
 <div class="dim">消息层/接入层自研 · 推理交给 harness · <span id="refreshed"></span></div>
 <div id="bots"></div>
 <h2>日志（最近 200 行）</h2>

@@ -9,7 +9,7 @@ import { KVFile } from "../src/core/kv-store.js";
 import { SessionStore } from "../src/core/session-store.js";
 
 export function tmpDir(): string {
-  return fs.mkdtempSync(path.join(os.tmpdir(), "agentgate-test-"));
+  return fs.mkdtempSync(path.join(os.tmpdir(), "home-agent-gate-test-"));
 }
 
 /**

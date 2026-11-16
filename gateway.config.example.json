@@ -6,7 +6,7 @@
     "binds": ["127.0.0.1"],
     "port": 18792,
     "baseUrl": "http://127.0.0.1:18792",
-    "title": "agentgate",
+    "title": "Home Agent Gate",
     "roots": { "notes": "workspace/assistant/output" },
     "publicDirs": ["public"],
     "linkOnlyDirs": []

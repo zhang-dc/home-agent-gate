@@ -1,4 +1,4 @@
-# agentgate
+# Home Agent Gate
 
 [中文](README.md)
 
@@ -29,7 +29,7 @@ A self-hosted **IM ↔ AI agent gateway**. The message and access layers are bui
 ## Quick start (local channel, no accounts needed)
 
 ```bash
-git clone https://github.com/zhang-dc/agentgate.git && cd agentgate
+git clone https://github.com/zhang-dc/home-agent-gate.git && cd home-agent-gate
 pnpm install                      # Node >= 22
 cp gateway.config.example.json gateway.config.json
 pnpm start
@@ -90,6 +90,10 @@ Agents write Markdown into a configured root; it is immediately a page (`.md` re
 
 ## Roadmap
 
+The following features are in design and are not implemented in v0.1.0:
+
+- **Control center and task board**: manual tasks, runtime overview, configuration UI, fixed actions, registered scripts and schedules that work without an LLM. See the [control center design (Chinese)](docs/control-center.md).
+- **Reusable tools and task templates**: a shared catalog, deployment bindings and mounting rules; an LLM selects tools from their instructions, while the server validates and enforces each mount. See the [tools and mounting design (Chinese)](docs/tools-and-tasks.md).
 - **Router + parallel Workers (coming soon)**: a small-model router per chat that answers within seconds and dispatches tasks to multiple concurrent worker sessions, so you can keep chatting while long tasks run.
 
 ## License

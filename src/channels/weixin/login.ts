@@ -1,7 +1,7 @@
 /**
  * Weixin ilink bot QR login — the same HTTP protocol the official
  * @tencent-weixin/openclaw-weixin plugin (MIT) uses, re-implemented here so
- * agentgate does not depend on openclaw:
+ * Home Agent Gate does not depend on openclaw:
  *
  *   1. POST ilink/bot/get_bot_qrcode?bot_type=3  {local_token_list}
  *        -> { qrcode, qrcode_img_content }   (img_content is a URL; render it as a QR code)

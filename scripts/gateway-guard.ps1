@@ -1,4 +1,4 @@
-# agentgate keepalive guard. Register it as a scheduled task that runs at logon
+# Home Agent Gate keepalive guard. Register it as a scheduled task that runs at logon
 # and every 5 minutes, through guard-hidden.vbs so no console window flashes.
 #
 # ASCII ONLY IN THIS FILE. Task Scheduler runs powershell.exe 5.1, which decodes

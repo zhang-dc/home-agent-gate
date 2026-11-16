@@ -1,5 +1,5 @@
 {
-  "name": "agentgate",
+  "name": "home-agent-gate",
   "version": "0.1.0",
   "description": "IM <-> AI agent gateway: message/access layer in-house, reasoning delegated to agent harnesses (Claude Agent SDK / Codex CLI)",
   "type": "module",
@@ -8,7 +8,7 @@
   "author": "zhang-dc",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zhang-dc/agentgate.git"
+    "url": "https://github.com/zhang-dc/home-agent-gate.git"
   },
   "scripts": {
     "start": "tsx src/index.ts",

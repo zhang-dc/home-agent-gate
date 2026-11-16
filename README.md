@@ -1,4 +1,4 @@
-# agentgate
+# Home Agent Gate
 
 [English](README.en.md)
 
@@ -40,8 +40,8 @@ compaction、memory、CLAUDE.md、skills 全部由 harness 自己管，网关只
 不需要任何平台账号。
 
 ```bash
-git clone https://github.com/zhang-dc/agentgate.git
-cd agentgate
+git clone https://github.com/zhang-dc/home-agent-gate.git
+cd home-agent-gate
 pnpm install                     # Node >= 22
 cp gateway.config.example.json gateway.config.json
 pnpm start
@@ -205,7 +205,7 @@ profile 字段（完整见 `src/config.ts`）：
   "binds": ["127.0.0.1"],               // 只写确定地址，别写 0.0.0.0
   "port": 18792,
   "baseUrl": "https://reports.example.com",
-  "title": "agentgate",
+  "title": "Home Agent Gate",
   "roots": { "notes": "workspace/assistant/output" },   // URL 首段 = key
   "publicDirs": ["public"],             // 经反向代理来的请求只能看这些一级子目录
   "linkOnlyDirs": []                    // 经反向代理只能按完整文件 URL 访问，不能列目录
@@ -235,7 +235,7 @@ $vbs = (Resolve-Path scripts\guard-hidden.vbs).Path
 $action = New-ScheduledTaskAction -Execute "wscript.exe" -Argument "`"$vbs`""
 $t1 = New-ScheduledTaskTrigger -AtLogOn
 $t2 = New-ScheduledTaskTrigger -Once -At (Get-Date) -RepetitionInterval (New-TimeSpan -Minutes 5)
-Register-ScheduledTask -TaskName "agentgate" -Action $action -Trigger $t1,$t2
+Register-ScheduledTask -TaskName "Home-Agent-Gate" -Action $action -Trigger $t1,$t2
 ```
 
 改完代码重启：`powershell -File scripts\restart-once.ps1 -DelaySeconds 0`。按 pid 杀，不要按命令行特征找进程（别的 tsx 程序命令行可能一模一样）。
@@ -260,6 +260,10 @@ pnpm dev         # tsx watch
 
 ## 路线图
 
+以下为设计阶段内容，当前 v0.1.0 尚未实现：
+
+- **控制中心与任务看板**：人工任务、运行概览、可视化配置、固定操作、注册脚本与定时任务，支持无 LLM 使用。见 [控制中心设计](docs/control-center.md)。
+- **通用工具与任务模板**：共享工具目录、部署绑定及挂载规则；LLM 按说明选择，服务端校验和执行。见 [工具与挂载设计](docs/tools-and-tasks.md)。
 - **Router + 并行 Worker（即将加入）**：每个聊天一个用小模型的常驻调度员（Router），几秒内回话、负责派活和转述；真正干活的是每个任务一个的 Worker 会话，可同时跑多个，长任务进行中也能随时问别的问题，`/status` 能看到每个任务在干什么。
 
 ## License

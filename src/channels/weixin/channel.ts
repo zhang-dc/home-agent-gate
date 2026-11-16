@@ -278,7 +278,7 @@ export class WeixinChannel implements Channel {
       msg: {
         from_user_id: "",
         to_user_id: to,
-        client_id: `agentgate-${crypto.randomUUID()}`,
+        client_id: `home-agent-gate-${crypto.randomUUID()}`,
         message_type: MessageType.BOT,
         message_state: MessageState.FINISH,
         item_list: [{ type: MessageItemType.TEXT, text_item: { text } }],

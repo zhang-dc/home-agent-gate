@@ -78,7 +78,7 @@ export class LocalChannel implements Channel {
         if (text) this.receive(STDIN_USER, text);
         else this.rl?.prompt();
       });
-      console.log("\nagentgate local channel ready. Type a message (try /ctx, /status, /new). Ctrl+C to quit.\n");
+      console.log("\nHome Agent Gate local channel ready. Type a message (try /ctx, /status, /new). Ctrl+C to quit.\n");
       this.rl.prompt();
     } else if (this.cfg.stdin) {
       this.log.info("stdin is not a TTY, terminal input disabled");

@@ -153,7 +153,7 @@ const PublishSchema = z.object({
   /** Public origin, used to print links. */
   baseUrl: z.string().default("http://127.0.0.1:18792"),
   /** Title of the index pages. */
-  title: z.string().default("agentgate"),
+  title: z.string().default("Home Agent Gate"),
   /** URL first segment -> directory that agents write into. Relative paths resolve against the repo root. */
   roots: z.record(z.string(), z.string()).default({}),
   /** First-level subdirectories of every root that proxied (external) requests may read; the rest 404. */
@@ -171,7 +171,7 @@ const ConfigSchema = z
       binds: ["127.0.0.1"],
       port: 18792,
       baseUrl: "http://127.0.0.1:18792",
-      title: "agentgate",
+      title: "Home Agent Gate",
       roots: {},
       publicDirs: ["public"],
       linkOnlyDirs: [],

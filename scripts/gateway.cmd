@@ -1,5 +1,5 @@
 @echo off
-REM agentgate launcher, started by gateway-guard.ps1 (or by hand).
+REM Home Agent Gate launcher, started by gateway-guard.ps1 (or by hand).
 REM ASCII ONLY IN THIS FILE: cmd.exe reads .cmd files in the OEM codepage,
 REM so non-ASCII comments get mangled into bogus commands.
 REM Output is appended to state\gateway.log (the admin panel tails the same file).

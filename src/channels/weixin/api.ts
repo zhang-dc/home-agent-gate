@@ -12,7 +12,7 @@ const log = createLogger("weixin-api");
  */
 const ILINK_APP_ID = "bot";
 const CHANNEL_VERSION = "2.4.4";
-const BOT_AGENT = "agentgate/0.1";
+const BOT_AGENT = "home-agent-gate/0.1";
 
 const DEFAULT_LONG_POLL_TIMEOUT_MS = 35_000;
 const DEFAULT_API_TIMEOUT_MS = 15_000;

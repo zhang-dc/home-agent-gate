@@ -188,7 +188,7 @@ export function startPublish(opts: PublishOptions): Promise<void> {
   const app = new Hono();
   const publicDirs = opts.publicDirs ?? ["public"];
   const linkOnlyDirs = opts.linkOnlyDirs ?? [];
-  const title = opts.title ?? "agentgate";
+  const title = opts.title ?? "Home Agent Gate";
   const roots = new Map<string, string>();
   for (const [name, dir] of Object.entries(opts.roots)) {
     const abs = path.resolve(dir);
